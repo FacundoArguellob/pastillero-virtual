@@ -1,39 +1,44 @@
 from tools import *
 from usuarios import class_usuario as usuario
 
-def check_eleccion(eleccion):
-
-    try:
-        if eleccion == 1 or eleccion == 2:
-            if eleccion == 1:
-                usuario.Acciones_usuario.login(any)
-            elif eleccion == 2:
-                usuario.Acciones_usuario.registro(any)
-        else:
-            print("Ingrese un numero valido")
-            menu_principal()
-    except ValueError:
-        print("Ingrese un numero valido")
-        menu_principal()
-
+"""
+TODO: sector administrador
+TODO: armar generador de remedios 
+TODO: armar menu de usuario
+TODO: rever la logica del menu principal *DONE*
+"""
 
 def menu_principal():
-    clear_screen()
-    print("Pastillero Virtual")
-    eleccion = int(input("""
-    (1) - Login
-    (2) - Crear cuenta
-    (3) - Salir 
-    """))
-    if eleccion == 3:
+    while True:
         clear_screen()
-        print("Gracias por usar Pastillero Virtual")
-    else:
-        check_eleccion(eleccion)
-
+        print("Pastillero Virtual")
+        try:
+            eleccion = int(input("""
+            (1) - Login
+            (2) - Crear cuenta
+            (3) - Salir 
+            """))
+        except ValueError:
+            print("Ingrese un numero valido")
+            sleep_time(2)
+            continue
+        if eleccion == 1:
+            login_data = usuario.Acciones_usuario.login(any)
+            break
+        elif eleccion == 2:
+            usuario.Acciones_usuario.registro(any)
+        elif eleccion == 3:
+            clear_screen()
+            print("Gracias por usar Pastillero Virtual")
+            login_data = any
+            break
+        else:
+            print("Ingrese un numero valido")
+            sleep_time(2)
+    return login_data
 
 def main():
-    menu_principal()
-
+    login_data = menu_principal()
 
 main()
+ 
