@@ -1,6 +1,7 @@
 from tools import *
 import usuarios.conexion_db_usuarios as modelo
 from faker import Faker 
+from usuarios import admin
 
 fake = Faker()
 
@@ -51,16 +52,17 @@ class Acciones_usuario:
             clear_screen()
             #email = input("Ingrese su email: ")
             #password = input("Ingrese su password: ")
+            admin_check = admin.check_admin(email, password)
             usuario = modelo.Usuario('', '', email, password)
             login = usuario.login()
-            if login[0] >= 1:
-                clear_screen()
-                
-                print(f"Bienvenido {login[1][1]} {login[1][2]}")
-                sleep_time(2)
-                break
-            else:
-                clear_screen()
-                print("No se pudo iniciar sesion, verifique los datos ingresados o crea una cuenta")
-                sleep_time(2)
+            if admin_check == False:
+                if login[0] >= 1:
+                    clear_screen() 
+                    print(f"Bienvenido {login[1][1]} {login[1][2]}")
+                    sleep_time(2)
+                    break
+                else:
+                    clear_screen()
+                    print("No se pudo iniciar sesion, verifique los datos ingresados o crea una cuenta")
+                    sleep_time(2)
             return login
