@@ -5,7 +5,6 @@ from usuarios import class_usuario as usuario
 TODO: sector administrador
 TODO: armar generador de remedios 
 TODO: armar menu de usuario
-TODO: rever la logica del menu principal *DONE*
 """
 
 def menu_principal():
