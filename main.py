@@ -21,19 +21,21 @@ def menu_principal():
             print("Ingrese un numero valido")
             sleep_time(2)
             continue
-        if eleccion == 1:
-            login_data = usuario.Acciones_usuario.login(any)
-            break
-        elif eleccion == 2:
-            usuario.Acciones_usuario.registro(any)
-        elif eleccion == 3:
-            clear_screen()
-            print("Gracias por usar Pastillero Virtual")
-            login_data = any
-            break
-        else:
-            print("Ingrese un numero valido")
-            sleep_time(2)
+ 
+        match eleccion:
+            case 1:
+                login_data = usuario.Acciones_usuario.login(None)
+                break
+            case 2:
+                usuario.Acciones_usuario.registro(None)
+            case 3:
+                clear_screen()
+                print("Gracias por usar Pastillero Virtual")
+                login_data = None
+                break
+            case None:
+                print("Ingrese un numero valido")
+                sleep_time(2)   
     return login_data
 
 def main():
