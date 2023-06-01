@@ -1,18 +1,6 @@
 from tools import *
 import usuarios.conexion_db_usuarios as modelo
-from faker import Faker 
 from usuarios import admin
-
-fake = Faker()
-
-
-def test():
-    nombre = fake.name()
-    apellido = fake.last_name()
-    email = fake.email()
-    password = fake.password()
-    return [nombre, apellido, email, password]
-
 
 class Acciones_usuario:
 
@@ -21,7 +9,7 @@ class Acciones_usuario:
         print("CREAR CUENTA")
 
         #test/check
-        nombre, apellido, email, password = test()
+        nombre, apellido, email, password = test_usuario_fake()
         
         """
         nombre = input("Ingrese su nombre: ")
