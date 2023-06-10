@@ -8,6 +8,7 @@ TODO: armar menu de usuario
 """
 
 def menu_principal():
+    CANTIDAD_DE_ELECCIONES = 3
     while True:
         clear_screen()
         print("Pastillero Virtual")
@@ -21,6 +22,11 @@ def menu_principal():
             print("Ingrese un numero valido")
             sleep_time(2)
             continue
+        else:
+            if eleccion < 1 or eleccion > CANTIDAD_DE_ELECCIONES:
+                print("Ingrese una opcion valida")
+                sleep_time(2)
+                continue
  
         match eleccion:
             case 1:

@@ -1,10 +1,18 @@
 import mysql.connector
 
+try:
+    with open('my_passwd.txt') as db_passwd_file:
+        my_passwd = db_passwd_file.readline()
+except FileNotFoundError:
+    print("""No se encontró 'my_passwd.txt'
+    Se asigna una contraseña vacia para la base de datos""")
+    my_passwd=""
+
 def conectar():
     database = mysql.connector.connect(
         host="localhost",
         user="root",
-        passwd="",
+        passwd=my_passwd,
         database="pastillero_db",
         port=3306,
     )
@@ -21,7 +29,7 @@ try:
     conexion = mysql.connector.connect(
         host="localhost",
         user="root",
-        passwd="",
+        passwd=my_passwd,
         database="pastillero_db",
         port=3306,
     )
