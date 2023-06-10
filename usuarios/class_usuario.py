@@ -1,6 +1,6 @@
 from tools import *
 import usuarios.conexion_db_usuarios as modelo
-from usuarios.admin import admin_class
+from usuarios.sector_admin import admin_class
 
 class Acciones_usuario:
 
