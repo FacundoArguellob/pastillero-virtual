@@ -9,7 +9,7 @@ class Acciones_usuario:
         print("CREAR CUENTA")
 
         #test/check
-        nombre, apellido, email, password = test_usuario_fake()
+        nombre, apellido, email, password = generar_usuario_fake()
         
         """
         nombre = input("Ingrese su nombre: ")
