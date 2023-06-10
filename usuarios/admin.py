@@ -3,9 +3,7 @@ from datetime import *
 import conexion
 
 
-connect = conexion.conectar()
-database = connect[0]
-cursor = connect[1]
+database, cursor = conexion.conectar()
 
 sql = "SHOW TABLES;"
 cursor.execute(sql)
@@ -24,6 +22,7 @@ def check_admin(email, password):
     
 
 def menu_admin():
+    CANTIDAD_DE_ELECCIONES = 3
     while True:
         try:
             eleccion = int(input("""
@@ -32,7 +31,14 @@ def menu_admin():
             (3) - Salir
             """))
         except ValueError:
-            print("Opcion no valida")
+            print("Ingrese un numero valido")
+            sleep_time(2)
+            continue
+        else:
+            if eleccion < 1 or eleccion > CANTIDAD_DE_ELECCIONES:
+                print("Ingrese una opcion valida")
+                sleep_time(2)
+                continue
 
         match eleccion:
             case 1:
@@ -42,8 +48,7 @@ def menu_admin():
             case 3:
                 break
             case _:
-                print("Numero fuera de rango")
-                sleep_time(2)
+                pass
 
 
 def menu_tablas():

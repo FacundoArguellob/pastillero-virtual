@@ -39,7 +39,7 @@ def menu_principal():
                 print("Gracias por usar Pastillero Virtual")
                 login_data = None
                 break
-            case None:
+            case _:
                 print("Ingrese un numero valido")
                 sleep_time(2)   
     return login_data
