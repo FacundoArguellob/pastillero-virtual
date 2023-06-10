@@ -17,7 +17,7 @@ def conectar():
         port=3306,
     )
     cursor = database.cursor(buffered=True)
-    return [database, cursor]
+    return database, cursor
 
 
 

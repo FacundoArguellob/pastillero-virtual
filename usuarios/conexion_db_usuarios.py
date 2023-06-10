@@ -2,9 +2,7 @@ import hashlib
 import conexion
 
 
-connect = conexion.conectar()
-database = connect[0]
-cursor = connect[1]
+database, cursor = conexion.conectar()
 
 class Usuario:
 
