@@ -4,8 +4,7 @@ try:
     with open('my_passwd.txt') as db_passwd_file:
         my_passwd = db_passwd_file.readline()
 except FileNotFoundError:
-    print("""No se encontró 'my_passwd.txt'
-    Se asigna una contraseña vacia para la base de datos""")
+    print("No se encontró 'my_passwd.txt' Se asigna una contraseña vacia para la base de datos")
     my_passwd=""
 
 def conectar():
@@ -23,7 +22,7 @@ def conectar():
 
 
 #db check
-"""
+
 try:
     # Establecer la conexión a la base de datos
     conexion = mysql.connector.connect(
@@ -43,4 +42,3 @@ try:
 
 except mysql.connector.Error as error:
     print("Error al conectar a la base de datos:", error)
-"""

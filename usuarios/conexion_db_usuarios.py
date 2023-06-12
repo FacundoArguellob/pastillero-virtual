@@ -13,8 +13,7 @@ class Usuario:
         self.password = password
     
 
-    def registro(self):
-        #cifrado contrasenia
+    def registro(self):        #cifrado contrasenia
         cifrado = hashlib.sha256()
         cifrado.update(self.password.encode('utf8'))
         sql = "INSERT INTO usuarios VALUES(null, %s, %s, %s, %s)"

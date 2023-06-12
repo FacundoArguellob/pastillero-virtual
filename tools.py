@@ -1,6 +1,6 @@
 import os
 import time
-from faker import Faker 
+from faker import Faker
 
 fake = Faker()
 
