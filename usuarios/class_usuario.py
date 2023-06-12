@@ -1,6 +1,6 @@
 from tools import *
 import usuarios.conexion_db_usuarios as modelo
-from usuarios import admin
+from usuarios.sector_admin import admin_class
 
 class Acciones_usuario:
 
@@ -9,7 +9,7 @@ class Acciones_usuario:
         print("CREAR CUENTA")
 
         #test/check
-        nombre, apellido, email, password = test_usuario_fake()
+        nombre, apellido, email, password = generar_usuario_fake()
         
         """
         nombre = input("Ingrese su nombre: ")
@@ -40,7 +40,7 @@ class Acciones_usuario:
             clear_screen()
             #email = input("Ingrese su email: ")
             #password = input("Ingrese su password: ")
-            admin_check = admin.check_admin(email, password)
+            admin_check = admin_class.check_admin(email, password)
             usuario = modelo.Usuario('', '', email, password)
             login = usuario.login()
             if admin_check == False:

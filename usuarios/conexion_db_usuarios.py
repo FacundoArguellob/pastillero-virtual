@@ -2,9 +2,7 @@ import hashlib
 import conexion
 
 
-connect = conexion.conectar()
-database = connect[0]
-cursor = connect[1]
+database, cursor = conexion.conectar()
 
 class Usuario:
 
@@ -15,8 +13,7 @@ class Usuario:
         self.password = password
     
 
-    def registro(self):
-        #cifrado contrasenia
+    def registro(self):        #cifrado contrasenia
         cifrado = hashlib.sha256()
         cifrado.update(self.password.encode('utf8'))
         sql = "INSERT INTO usuarios VALUES(null, %s, %s, %s, %s)"

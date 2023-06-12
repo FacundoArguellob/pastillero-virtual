@@ -1,4 +1,5 @@
 from tools import *
+from menus import *
 from usuarios import class_usuario as usuario
 
 """
@@ -7,20 +8,22 @@ TODO: armar generador de remedios
 TODO: armar menu de usuario
 """
 
-def menu_principal():
+def menu_usuario():
+    CANTIDAD_DE_ELECCIONES = 3
     while True:
         clear_screen()
-        print("Pastillero Virtual")
         try:
-            eleccion = int(input("""
-            (1) - Login
-            (2) - Crear cuenta
-            (3) - Salir 
-            """))
+            menu_principal()
+            eleccion = int(input())
         except ValueError:
             print("Ingrese un numero valido")
             sleep_time(2)
             continue
+        else:
+            if eleccion < 1 or eleccion > CANTIDAD_DE_ELECCIONES:
+                print("Ingrese una opcion valida")
+                sleep_time(2)
+                continue
  
         match eleccion:
             case 1:
@@ -33,13 +36,13 @@ def menu_principal():
                 print("Gracias por usar Pastillero Virtual")
                 login_data = None
                 break
-            case None:
+            case _:
                 print("Ingrese un numero valido")
                 sleep_time(2)   
     return login_data
 
 def main():
-    login_data = menu_principal()
+    login_data = menu_usuario()
 
 main()
  

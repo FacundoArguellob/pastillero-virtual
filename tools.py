@@ -1,6 +1,6 @@
 import os
 import time
-from faker import Faker 
+from faker import Faker
 
 fake = Faker()
 
@@ -10,14 +10,14 @@ def clear_screen():
 def sleep_time(seconds):
     time.sleep(seconds)
 
-def test_usuario_fake():
+def generar_usuario_fake():
     nombre = fake.name()
     apellido = fake.last_name()
     email = fake.email()
     password = fake.password()
-    return [nombre, apellido, email, password]
+    return nombre, apellido, email, password
 
-def test_remedio_fake():
+def generar_remedio_fake():
     nombre = fake.word()
     descripcion = fake.sentence()
-    return [nombre, descripcion]
+    return nombre, descripcion

@@ -1,2 +1,5 @@
 __pycache__/
 graph/
+my_passwd.txt
+.vscode/
+pastillero_venv/
