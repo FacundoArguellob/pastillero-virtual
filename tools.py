@@ -21,3 +21,13 @@ def generar_remedio_fake():
     nombre = fake.word()
     descripcion = fake.sentence()
     return nombre, descripcion
+
+def loader(flag):
+    items = ["0", "o", "o", "o", "o", "o"]
+
+    while True:
+        print("".join(items), end="\r")
+        time.sleep(0.5)
+        items.insert(0, items.pop())
+        if flag:
+            break
