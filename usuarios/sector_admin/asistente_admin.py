@@ -1,12 +1,8 @@
 from tools import *
-from datetime import *
-import admin_class as Admin
-import conexion
-
-
-connect = conexion.conectar()
-database = connect[0]
-cursor = connect[1]
+from menus import *
+from datetime import datetime
+from usuarios.sector_admin.admin_class import *
+from peticiones_db import *
 
 
 def check_admin(email, password):
@@ -14,7 +10,7 @@ def check_admin(email, password):
     password_admin = "admin"
     if email == email_admin and password == password_admin:
         clear_screen()
-        print(f"Bienvenido Administrador. Ultima conexion: {datetime.now()}")
+        print(f"Bienvenido Administrador. Ultima conexion: {datetime.today()}")
         menu_admin()
     else:
         return False
@@ -23,17 +19,15 @@ def check_admin(email, password):
 def menu_admin():
     while True:
         try:
-            eleccion = int(input("""
-            (1) - Ver tablas
-            (2) - Modificar tablas
-            (3) - Salir
-            """))
+            menu_admin_principal()
+            eleccion = int(input())
         except ValueError:
             print("Opcion no valida")
 
         match eleccion:
             case 1:
-                Admin.mostrar_tabla(any)
+                tabla_eleccion = menu_tablas()
+                Admin.mostrar_tablas(any, tabla_eleccion)
             case 2:
                 Admin.modificar_tablas(any)
             case 3:
@@ -44,9 +38,7 @@ def menu_admin():
 
 
 def menu_tablas():
-    sql = "SHOW TABLES;"
-    cursor.execute(sql)
-    tablas = cursor.fetchall()
+    tablas = Peticiones_db.mostrar_tablas()
 
     while True:
         clear_screen()

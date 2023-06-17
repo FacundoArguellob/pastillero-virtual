@@ -1,5 +1,7 @@
 __pycache__/
 graph/
-my_passwd.txt
+*.txt
 .vscode/
 pastillero_venv/
+.dependencies.txt.swp
+test.py
