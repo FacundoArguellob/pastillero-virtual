@@ -1,7 +1,6 @@
 __pycache__/
 graph/
-*.txt
-.vscode/
-pastillero_venv/
-.dependencies.txt.swp
 test.py
+*.txt
+pastillero_venv/
+.vscode
